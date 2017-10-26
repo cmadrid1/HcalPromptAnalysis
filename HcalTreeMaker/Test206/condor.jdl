@@ -1,0 +1,14 @@
+universe = vanilla
+Executable = cmsRun.csh
+Requirements = OpSys == "LINUX" && (Arch != "DUMMY" )
+request_disk = 20000000
+request_memory = 4200
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Output = sleep_$(Cluster)_$(Process).stdout
+Error = sleep_$(Cluster)_$(Process).stderr
+Log = sleep_$(Cluster)_$(Process).log
+notify_user = cmadrid@FNAL.GOV
+x509userproxy = /tmp/x509up_u52081
+Arguments =  Output_Histo_standard_$(Process).root Output_Histo_RecHit_$(Process).root debugcalosamples_$(Process).root debugcalosamples_DC_$(Process).root debugcalosamples_GT_$(Process).root debugcalosamples_TS_$(Process).root debugcalosamples_PW_$(Process).root debugcalosamples_PS_$(Process).root $(Process)
+Queue 1000
