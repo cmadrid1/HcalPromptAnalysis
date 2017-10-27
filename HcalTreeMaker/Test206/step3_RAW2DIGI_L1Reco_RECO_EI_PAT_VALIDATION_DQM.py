@@ -43,7 +43,7 @@ process.options = cms.untracked.PSet(
 
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('step3 nevts:-1'),
+    annotation = cms.untracked.string('step3 nevts:10'),
     name = cms.untracked.string('Applications'),
     version = cms.untracked.string('$Revision: 1.19 $')
 )
@@ -55,7 +55,6 @@ process.RECOSIMoutput = cms.OutputModule("PoolOutputModule",
         dataTier = cms.untracked.string('GEN-SIM-RECO'),
         filterName = cms.untracked.string('')
     ),
-    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
     fileName = cms.untracked.string('file:step3.root'),
     outputCommands = process.RECOSIMEventContent.outputCommands,
     splitLevel = cms.untracked.int32(0)
@@ -69,11 +68,60 @@ process.MINIAODSIMoutput = cms.OutputModule("PoolOutputModule",
         filterName = cms.untracked.string('')
     ),
     dropMetaData = cms.untracked.string('ALL'),
-    eventAutoFlushCompressedSize = cms.untracked.int32(15728640),
+    eventAutoFlushCompressedSize = cms.untracked.int32(-900),
     fastCloning = cms.untracked.bool(False),
     fileName = cms.untracked.string('file:step3_inMINIAODSIM.root'),
     outputCommands = process.MINIAODSIMEventContent.outputCommands,
-    overrideInputFileSplitLevels = cms.untracked.bool(True)
+    overrideBranchesSplitLevel = cms.untracked.VPSet(cms.untracked.PSet(
+        branch = cms.untracked.string('patPackedCandidates_packedPFCandidates__*'),
+        splitLevel = cms.untracked.int32(99)
+    ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('recoGenParticles_prunedGenParticles__*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('patTriggerObjectStandAlones_slimmedPatTrigger__*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('patPackedGenParticles_packedGenParticles__*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('patJets_slimmedJets__*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('recoVertexs_offlineSlimmedPrimaryVertices__*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('recoCaloClusters_reducedEgamma_reducedESClusters_*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('EcalRecHitsSorted_reducedEgamma_reducedEBRecHits_*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('EcalRecHitsSorted_reducedEgamma_reducedEERecHits_*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('recoGenJets_slimmedGenJets__*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('patJets_slimmedJetsPuppi__*'),
+            splitLevel = cms.untracked.int32(99)
+        ), 
+        cms.untracked.PSet(
+            branch = cms.untracked.string('EcalRecHitsSorted_reducedEgamma_reducedESRecHits_*'),
+            splitLevel = cms.untracked.int32(99)
+        )),
+    overrideInputFileSplitLevels = cms.untracked.bool(True),
+    splitLevel = cms.untracked.int32(0)
 )
 
 process.DQMoutput = cms.OutputModule("DQMRootOutputModule",

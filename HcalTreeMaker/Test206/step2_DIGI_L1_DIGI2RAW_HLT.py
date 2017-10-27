@@ -20,7 +20,8 @@ process.load('Configuration.StandardSequences.MagneticField_cff')
 process.load('Configuration.StandardSequences.Digi_cff')
 process.load('Configuration.StandardSequences.SimL1Emulator_cff')
 process.load('Configuration.StandardSequences.DigiToRaw_cff')
-process.load('HLTrigger.Configuration.HLT_GRun_cff')
+process.load('HLTrigger.Configuration.HLT_2e34v31_cff')
+#process.load('HLTrigger.Configuration.HLT_GRun_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
@@ -70,7 +71,7 @@ process.FEVTDEBUGHLToutput = cms.OutputModule("PoolOutputModule",
         dataTier = cms.untracked.string('GEN-SIM-DIGI-RAW'),
         filterName = cms.untracked.string('')
     ),
-    eventAutoFlushCompressedSize = cms.untracked.int32(10485760),
+    #eventAutoFlushCompressedSize = cms.untracked.int32(10485760),
     fileName = cms.untracked.string('file:step2.root'),
     outputCommands = process.FEVTDEBUGHLTEventContent.outputCommands,
     splitLevel = cms.untracked.int32(0)
@@ -109,11 +110,11 @@ process = customizeHLTforMC(process)
 
 ##Chris' Customisations
 # Automatic addition of the customisation function from SimCalorimetry.HcalSimAlgos.AddCaloSamplesAnalyzer
-from SimCalorimetry.HcalSimAlgos.AddCaloSamplesAnalyzer import customise
+#from SimCalorimetry.HcalSimAlgos.AddCaloSamplesAnalyzer import customise
 #call to customisation function customise imported from SimCalorimetry.HcalSimAlgos.AddCaloSamplesAnalyzer
-process = customise(process)
+#process = customise(process)
 #Rename output debug root file                              
-process.TFileService.fileName = cms.string('debugcalosamples.root')
+#process.TFileService.fileName = cms.string('debugcalosamples.root')
 ##
 
 # Customisation from command line
