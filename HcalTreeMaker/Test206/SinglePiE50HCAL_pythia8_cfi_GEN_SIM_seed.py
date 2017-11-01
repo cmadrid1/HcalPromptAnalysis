@@ -7,7 +7,9 @@ import FWCore.ParameterSet.Config as cms
 
 from Configuration.StandardSequences.Eras import eras
 
-process = cms.Process('SIM',eras.Run2_2017)
+#process = cms.Process('SIM',eras.Run2_2017)
+process = cms.Process('SIM',eras.Run2_2017,eras.hcalHardcodeConditions)
+
 
 import os
 myRunNumber = int(os.environ.get('RUNNUMBER',' 12345'))+1
@@ -32,8 +34,11 @@ process.load('Configuration.StandardSequences.SimIdeal_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
+#####
+process.es_hardcode.toGet = cms.untracked.vstring('GainWidths','MCParams','RecoParams')
+
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(10)
+    input = cms.untracked.int32(100)
 )
 
 # Input source
