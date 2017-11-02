@@ -83,16 +83,19 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 
   TTreeReaderValue<std::vector<float>> recHitHB_En(*tReader, "recHitHB_En");
   TTreeReaderValue<std::vector<float>> recHitHB_EnRAW(*tReader, "recHitHB_EnRAW");
+  TTreeReaderValue<std::vector<float>> recHitHB_EnM3(*tReader, "recHitHB_EnM3");
   TTreeReaderValue<std::vector<float>> recHitHB_time(*tReader, "recHitHB_time");
   TTreeReaderValue<std::vector<float>> chi2HB(*tReader, "chi2HB");
 
   TTreeReaderValue<std::vector<float>> recHitHE_En(*tReader, "recHitHE_En");
   TTreeReaderValue<std::vector<float>> recHitHE_EnRAW(*tReader, "recHitHE_EnRAW");
+  TTreeReaderValue<std::vector<float>> recHitHE_EnM3(*tReader, "recHitHE_EnM3");
   TTreeReaderValue<std::vector<float>> recHitHE_time(*tReader, "recHitHE_time");
   TTreeReaderValue<std::vector<float>> chi2HE(*tReader, "chi2HE");
 
   TTreeReaderValue<std::vector<float>> recHitHEQIE11_En(*tReader, "recHitHE_En");
   TTreeReaderValue<std::vector<float>> recHitHEQIE11_EnRAW(*tReader, "recHitHE_EnRAW");
+  TTreeReaderValue<std::vector<float>> recHitHEQIE11_EnM3(*tReader, "recHitHE_EnM3");
   TTreeReaderValue<std::vector<float>> recHitHEQIE11_time(*tReader, "recHitHE_time");
   TTreeReaderValue<std::vector<float>> chi2HEQIE11(*tReader, "chi2HE");
 
@@ -100,16 +103,22 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
   TProfile *chi2_energyHB = new TProfile("chi2_energyHB","chi2_energyHB",100,0,500);
   TH2F *TH2_chi2_energyHB = new TH2F("TH2_chi2_energyHB","TH2_chi2_energyHB",100,0,500,100,-5,5);
   TH2F *M2vsM0_HB         = new TH2F("M2vsM0_HB","M2vsM0_HB",100,0,500,100,0,500);
+  TH2F *M3vsM0_HB         = new TH2F("M3vsM0_HB","M3vsM0_HB",100,0,500,100,0,500);
+  TH2F *M3vsM2_HB         = new TH2F("M3vsM2_HB","M3vsM2_HB",100,0,500,100,0,500);
   TH2F *TH2_time_energyHB = new TH2F("TH2_time_energyHB","TH2_time_energyHB",100,0,500,400,-20,20);
 
   TProfile *chi2_energyHE = new TProfile("chi2_energyHE","chi2_energyHE",100,0,500);
   TH2F *TH2_chi2_energyHE = new TH2F("TH2_chi2_energyHE","TH2_chi2_energyHE",100,0,500,100,-5,5);
   TH2F *M2vsM0_HE         = new TH2F("M2vsM0_HE","M2vsM0_HE",100,0,500,100,0,500);
+  TH2F *M3vsM0_HE         = new TH2F("M3vsM0_HE","M3vsM0_HE",100,0,500,100,0,500);
+  TH2F *M3vsM2_HE         = new TH2F("M3vsM2_HE","M3vsM2_HE",100,0,500,100,0,500);
   TH2F *TH2_time_energyHE = new TH2F("TH2_time_energyHE","TH2_time_energyHE",100,0,500,400,-20,20);
 
   TProfile *chi2_energyHEQIE11 = new TProfile("chi2_energyHEQIE11","chi2_energyHEQIE11",100,0,500);
   TH2F *TH2_chi2_energyHEQIE11 = new TH2F("TH2_chi2_energyHEQIE11","TH2_chi2_energyHEQIE11",100,0,500,100,-5,5);
   TH2F *M2vsM0_HEQIE11         = new TH2F("M2vsM0_HEQIE11","M2vsM0_HEQIE11",100,0,500,100,0,500);
+  TH2F *M3vsM0_HEQIE11         = new TH2F("M3vsM0_HEQIE11","M3vsM0_HEQIE11",100,0,500,100,0,500);
+  TH2F *M3vsM2_HEQIE11         = new TH2F("M3vsM2_HEQIE11","M3vsM2_HEQIE11",100,0,500,100,0,500);
   TH2F *TH2_time_energyHEQIE11 = new TH2F("TH2_time_energyHEQIE11","TH2_time_energyHEQIE11",100,0,500,400,-20,20);
  
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -122,6 +131,7 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
       double chi2     = (*chi2HB).at(rechit);
       double energyM2 = (*recHitHB_En).at(rechit);
       double energyM0 = (*recHitHB_EnRAW).at(rechit);
+      double energyM3 = (*recHitHB_EnM3).at(rechit);
       double time     = (*recHitHB_time).at(rechit);
       int ieta        = (*recHitHB_ieta).at(rechit);
       int iphi        = (*recHitHB_iphi).at(rechit);
@@ -131,6 +141,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	chi2_energyHB->Fill(energyM2,log10(chi2));
 	TH2_chi2_energyHB->Fill(energyM2,log10(chi2));
 	M2vsM0_HB->Fill(energyM0,energyM2);
+	M3vsM0_HB->Fill(energyM3,energyM0);
+	M3vsM2_HB->Fill(energyM3,energyM2);
 	TH2_time_energyHB->Fill(energyM2,time);
       }
 
@@ -140,6 +152,7 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
       double chi2     = (*chi2HE).at(rechit);
       double energyM2 = (*recHitHE_En).at(rechit);
       double energyM0 = (*recHitHE_EnRAW).at(rechit);
+      double energyM3 = (*recHitHE_EnM3).at(rechit);
       double time     = (*recHitHE_time).at(rechit);	
       int ieta        = (*recHitHE_ieta).at(rechit);
       int iphi        = (*recHitHE_iphi).at(rechit);
@@ -149,6 +162,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	  chi2_energyHEQIE11->Fill(energyM2,log10(chi2));
 	  TH2_chi2_energyHEQIE11->Fill(energyM2,log10(chi2));
 	  M2vsM0_HEQIE11->Fill(energyM0,energyM2);
+	  M3vsM0_HEQIE11->Fill(energyM3,energyM0);
+	  M3vsM2_HEQIE11->Fill(energyM3,energyM2);
 	  TH2_time_energyHEQIE11->Fill(energyM2,time);
       }//In HEP17
       else{
@@ -156,6 +171,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	  chi2_energyHE->Fill(energyM2,log10(chi2));
 	  TH2_chi2_energyHE->Fill(energyM2,log10(chi2));
 	  M2vsM0_HE->Fill(energyM0,energyM2);
+	  M3vsM0_HE->Fill(energyM3,energyM0);
+	  M3vsM2_HE->Fill(energyM3,energyM2);
 	  TH2_time_energyHE->Fill(energyM2,time);
 	}
 	

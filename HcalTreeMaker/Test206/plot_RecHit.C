@@ -48,15 +48,21 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   TH2F* h6  = NULL;
   TH2F* h7  = NULL;
   TH2F* h8  = NULL;
+  TH2F* h9  = NULL;
+  TH2F* h10 = NULL;
   
   h1 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHB");
   h2 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHB");
   h3 = defineTH2F("Output_Histo_RecHit.root","M2vsM0_HB");
+  h3 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HB");
+  h3 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HB");
   h4 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHB");
   h5 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHEQIE11");
   h6 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHEQIE11");
   h7 = defineTH2F("Output_Histo_RecHit.root","M2vsM0_HEQIE11");
   h8 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHEQIE11");
+  h9 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HEQIE11");
+  h10 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HEQIE11");
 
   ////////HB//////////
   TCanvas *c0 = new TCanvas("c0","c0",1200,800);
@@ -284,8 +290,62 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   h8->SetLabelSize(0.03,"X");
   h8->SetStats(false);
 
+  TCanvas *c2 = new TCanvas("c2","c2",1200,400);
+  c2->Divide(2,1);
+
+  c2->cd(1);
+  gPad->SetTopMargin(0.06);
+  gPad->SetBottomMargin(0.16);
+  gPad->SetRightMargin(0.15);
+  gPad->SetLeftMargin(0.13);
+  gPad->SetLogz();
+  //gPad->SetGrid();
+  gStyle->SetPalette(kBird);
+
+  h9->Draw("COLZ"); 
+  //h9->SetMinimum(ymin);
+  //h9->SetMaximum(ymax);
+  h9->SetName("");
+  h9->SetTitle(HE_Title);
+  h9->GetXaxis()->SetTitle("M0 Energy [GeV]");
+  h9->GetYaxis()->SetTitle("M3 Energy [GeV]");
+  h9->SetTitleSize(0.001);
+  h9->SetTitleSize(0.05,"Y");
+  h9->SetTitleSize(0.05,"X");
+  h9->SetTitleOffset(1.0,"Y");
+  h9->SetTitleOffset(1.0,"X");
+  h9->SetLabelSize(0.03,"Y");
+  h9->SetLabelSize(0.03,"X");
+  h9->SetStats(false);
+
+  c2->cd(2);
+  gPad->SetTopMargin(0.06);
+  gPad->SetBottomMargin(0.16);
+  gPad->SetRightMargin(0.15);
+  gPad->SetLeftMargin(0.13);
+  gPad->SetLogz();
+  //gPad->SetGrid();
+  gStyle->SetPalette(kBird);
+
+  h10->Draw("COLZ"); 
+  //h10->SetMinimum(ymin);
+  //h10->SetMaximum(ymax);
+  h10->SetName("");
+  h10->SetTitle(HE_Title);
+  h10->GetXaxis()->SetTitle("M2 Energy [GeV]");
+  h10->GetYaxis()->SetTitle("M3 Energy [GeV]");
+  h10->SetTitleSize(0.001);
+  h10->SetTitleSize(0.05,"Y");
+  h10->SetTitleSize(0.05,"X");
+  h10->SetTitleOffset(1.0,"Y");
+  h10->SetTitleOffset(1.0,"X");
+  h10->SetLabelSize(0.03,"Y");
+  h10->SetLabelSize(0.03,"X");
+  h10->SetStats(false);
+  
   //Save Plot
   c0->SaveAs(HB_Name_Save);
   c1->SaveAs(HE_Name_Save);
+  c2->SaveAs("M3_Plots.pdf");
 
 }//End of Macro
