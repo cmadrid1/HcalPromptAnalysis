@@ -76,7 +76,8 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  
+  gStyle->SetPalette(kRainBow);
+
   //h1->SetLineColor(2);
   h1->Draw("COLZ"); 
   h1->SetMinimum(ychi_min);
@@ -106,7 +107,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  gStyle->SetPalette(kBird);
+  gStyle->SetPalette(kRainBow);
 
   //h2->SetLineColor(2);
   h2->Draw("COLZ"); 
@@ -132,7 +133,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  gStyle->SetPalette(kBird);
+  gStyle->SetPalette(kRainBow);
 
   //h3->SetLineColor(2);
   h3->Draw("COLZ"); 
@@ -159,7 +160,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  gStyle->SetPalette(kBird);
+  gStyle->SetPalette(kRainBow);
 
   //h4->SetLineColor(2);
   h4->Draw("COLZ"); 
@@ -219,7 +220,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  gStyle->SetPalette(kBird);
+  gStyle->SetPalette(kRainBow);
 
   //h6->SetLineColor(2);
   h6->Draw("COLZ"); 
@@ -245,7 +246,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  gStyle->SetPalette(kBird);
+  gStyle->SetPalette(kRainBow);
 
   //h7->SetLineColor(2);
   h7->Draw("COLZ"); 
@@ -272,7 +273,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  gStyle->SetPalette(kBird);
+  gStyle->SetPalette(kRainBow);
 
   //h8->SetLineColor(2);
   h8->Draw("COLZ"); 
@@ -300,7 +301,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  gStyle->SetPalette(kBird);
+  gStyle->SetPalette(kRainBow);
 
   h9->Draw("COLZ"); 
   //h9->SetMinimum(ymin);
@@ -325,7 +326,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   gPad->SetLeftMargin(0.13);
   gPad->SetLogz();
   //gPad->SetGrid();
-  gStyle->SetPalette(kBird);
+  gStyle->SetPalette(kRainBow);
 
   h10->Draw("COLZ"); 
   //h10->SetMinimum(ymin);
