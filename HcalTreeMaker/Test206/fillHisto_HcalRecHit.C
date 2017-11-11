@@ -171,7 +171,7 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	  chi2_energyHE->Fill(energyM2,log10(chi2));
 	  TH2_chi2_energyHE->Fill(energyM2,log10(chi2));
 	  M2vsM0_HE->Fill(energyM0,energyM2);
-	  M3vsM0_HE->Fill(energyM3,energyM0);
+	  M3vsM0_HE->Fill(energyM3,energyM0); 
 	  M3vsM2_HE->Fill(energyM3,energyM2);
 	  TH2_time_energyHE->Fill(energyM2,time);
 	}

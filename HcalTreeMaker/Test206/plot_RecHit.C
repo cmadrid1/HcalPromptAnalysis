@@ -291,8 +291,8 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   h8->SetLabelSize(0.03,"X");
   h8->SetStats(false);
 
-  TCanvas *c2 = new TCanvas("c2","c2",1200,400);
-  c2->Divide(2,1);
+  TCanvas *c2 = new TCanvas("c2","c2",600,800);
+  c2->Divide(1,2);
 
   c2->cd(1);
   gPad->SetTopMargin(0.06);
@@ -308,8 +308,8 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   //h9->SetMaximum(ymax);
   h9->SetName("");
   h9->SetTitle(HE_Title);
-  h9->GetXaxis()->SetTitle("M0 Energy [GeV]");
-  h9->GetYaxis()->SetTitle("M3 Energy [GeV]");
+  h9->GetXaxis()->SetTitle("M3 Energy [GeV]");
+  h9->GetYaxis()->SetTitle("M0 Energy [GeV]");
   h9->SetTitleSize(0.001);
   h9->SetTitleSize(0.05,"Y");
   h9->SetTitleSize(0.05,"X");
@@ -333,8 +333,8 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   //h10->SetMaximum(ymax);
   h10->SetName("");
   h10->SetTitle(HE_Title);
-  h10->GetXaxis()->SetTitle("M2 Energy [GeV]");
-  h10->GetYaxis()->SetTitle("M3 Energy [GeV]");
+  h10->GetXaxis()->SetTitle("M3 Energy [GeV]");
+  h10->GetYaxis()->SetTitle("M2 Energy [GeV]");
   h10->SetTitleSize(0.001);
   h10->SetTitleSize(0.05,"Y");
   h10->SetTitleSize(0.05,"X");
