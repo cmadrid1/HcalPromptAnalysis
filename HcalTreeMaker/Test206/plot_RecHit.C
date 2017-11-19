@@ -50,6 +50,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   TH2F* h8  = NULL;
   TH2F* h9  = NULL;
   TH2F* h10 = NULL;
+  TH2F* h11 = NULL;
   
   h1 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHB");
   h2 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHB");
@@ -63,6 +64,7 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   h8 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHEQIE11");
   h9 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HEQIE11");
   h10 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HEQIE11");
+  h11 = defineTH2F("Output_Histo_RecHit.root","chi2_energyHEQIE111D");
 
   ////////HB//////////
   TCanvas *c0 = new TCanvas("c0","c0",1200,800);
@@ -343,10 +345,35 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   h10->SetLabelSize(0.03,"Y");
   h10->SetLabelSize(0.03,"X");
   h10->SetStats(false);
+
+  TCanvas *c3 = new TCanvas("c3","c3",600,400);
+  gPad->SetTopMargin(0.06);
+  gPad->SetBottomMargin(0.16);
+  gPad->SetRightMargin(0.15);
+  gPad->SetLeftMargin(0.13);
+  gPad->SetLogz();
+  //gPad->SetGrid();
+  //gStyle->SetPalette(kRainBow);
   
+  h11->Draw(""); 
+  h11->SetName("");
+  h11->SetTitle(HE_Title);
+  h11->GetXaxis()->SetTitle("log10(chi2)");
+  h11->GetYaxis()->SetTitle("RecHits");
+  h11->SetTitleSize(0.001);
+  h11->SetTitleSize(0.05,"Y");
+  h11->SetTitleSize(0.05,"X");
+  h11->SetTitleOffset(1.0,"Y");
+  h11->SetTitleOffset(1.0,"X");
+  h11->SetLabelSize(0.03,"Y");
+  h11->SetLabelSize(0.03,"X");
+  //h11->SetStats(false);
+
   //Save Plot
   c0->SaveAs(HB_Name_Save);
   c1->SaveAs(HE_Name_Save);
   c2->SaveAs("M3_Plots.pdf");
+  c3->SaveAs("chi21D_Plots.pdf");
+
 
 }//End of Macro
