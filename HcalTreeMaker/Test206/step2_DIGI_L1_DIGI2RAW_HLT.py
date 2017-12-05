@@ -22,8 +22,10 @@ process.load('Configuration.StandardSequences.MagneticField_cff')
 process.load('Configuration.StandardSequences.Digi_cff')
 process.load('Configuration.StandardSequences.SimL1Emulator_cff')
 process.load('Configuration.StandardSequences.DigiToRaw_cff')
+
 process.load('HLTrigger.Configuration.HLT_2e34v31_cff')
 #process.load('HLTrigger.Configuration.HLT_GRun_cff')
+
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
@@ -83,6 +85,10 @@ process.FEVTDEBUGHLToutput = cms.OutputModule("PoolOutputModule",
 )
 
 # Additional output definition
+
+#Chris' addition: No GT and No TS
+#process.mix.digitizers.hcal.ignoreGeantTime = cms.bool(True) 
+#process.mix.digitizers.hcal.doTimeSlew = cms.bool(False)
 
 # Other statements
 process.mix.digitizers = cms.PSet(process.theDigitizersValid)

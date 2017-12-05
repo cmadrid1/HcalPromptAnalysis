@@ -32,12 +32,12 @@ process.source.fileNames = cms.untracked.vstring(options.inputFiles)
 getattr(process,options.output).fileName = cms.untracked.string('file:'+_outname)
 
 # customization
-from SLHCUpgradeSimulations.Configuration.HCalCustoms import load_HcalHardcode
-process = load_HcalHardcode(process)
-process.es_hardcode.useHFUpgrade = cms.bool(True)
-#process.es_hardcode.useHEUpgrade = cms.bool(True)
-process.es_hardcode.testHEPlan1 = cms.bool(True)
-process.es_hardcode.toGet = cms.untracked.vstring('GainWidths','SiPMParameters','SiPMCharacteristics')
+#from SLHCUpgradeSimulations.Configuration.HCalCustoms import load_HcalHardcode
+#process = load_HcalHardcode(process)
+#process.es_hardcode.useHFUpgrade = cms.bool(True)
+##process.es_hardcode.useHEUpgrade = cms.bool(True)
+#process.es_hardcode.testHEPlan1 = cms.bool(True)
+#process.es_hardcode.toGet = cms.untracked.vstring('GainWidths','SiPMParameters','SiPMCharacteristics')
 
 if not options.GT:
     process.mix.digitizers.hcal.ignoreGeantTime = cms.bool(True)

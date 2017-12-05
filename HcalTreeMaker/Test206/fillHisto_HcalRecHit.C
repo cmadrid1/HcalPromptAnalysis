@@ -102,6 +102,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
   //Define the Histograms to be filled
   TProfile *chi2_energyHB     = new TProfile("chi2_energyHB","chi2_energyHB",100,0,500);
   TH1F *chi2_energyHB1D       = new TH1F("chi2_energyHB1D","chi2_energyHB1D",104,-1,3); 
+  TH1F *chi2_energyHB1D_10Cut = new TH1F("chi2_energyHB1D_10Cut","chi2_energyHB1D_10Cut",104,-1,3); 
+  TH1F *chi2_energyHB1D_15Cut = new TH1F("chi2_energyHB1D_15Cut","chi2_energyHB1D_15Cut",104,-1,3); 
   TH1F *chi2_energyHB1D_noCut = new TH1F("chi2_energyHB1D_noCut","chi2_energyHB1D_noCut",104,-1,3); 
   TH2F *TH2_chi2_energyHB     = new TH2F("TH2_chi2_energyHB","TH2_chi2_energyHB",100,0,500,100,-5,5);
   TH2F *M2vsM0_HB             = new TH2F("M2vsM0_HB","M2vsM0_HB",100,0,500,100,0,500);
@@ -111,6 +113,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 
   TProfile *chi2_energyHE_All     = new TProfile("chi2_energyHE_All","chi2_energyHE_All",100,0,500);
   TH1F *chi2_energyHE_All1D       = new TH1F("chi2_energyHE_All1D","chi2_energyHE_All1D",104,-1,3); 
+  TH1F *chi2_energyHE_All1D_10Cut = new TH1F("chi2_energyHE_All1D_10Cut","chi2_energyHE_All1D_10Cut",104,-1,3); 
+  TH1F *chi2_energyHE_All1D_15Cut = new TH1F("chi2_energyHE_All1D_15Cut","chi2_energyHE_All1D_15Cut",104,-1,3); 
   TH1F *chi2_energyHE_All1D_noCut = new TH1F("chi2_energyHE_All1D_noCut","chi2_energyHE_All1D_noCut",104,-1,3); 
   TH2F *TH2_chi2_energyHE_All     = new TH2F("TH2_chi2_energyHE_All","TH2_chi2_energyHE_All",100,0,500,100,-5,5);
   TH2F *M2vsM0_HE_All             = new TH2F("M2vsM0_HE_All","M2vsM0_HE_All",100,0,500,100,0,500);
@@ -120,6 +124,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 
   TProfile *chi2_energyHE       = new TProfile("chi2_energyHE","chi2_energyHE",100,0,500);
   TH1F *chi2_energyHE1D         = new TH1F("chi2_energyHE1D","chi2_energyHE1D",104,-1,3); 
+  TH1F *chi2_energyHE1D_10Cut   = new TH1F("chi2_energyHE1D_10Cut","chi2_energyHE1D_10Cut",104,-1,3); 
+  TH1F *chi2_energyHE1D_15Cut   = new TH1F("chi2_energyHE1D_15Cut","chi2_energyHE1D_15Cut",104,-1,3); 
   TH1F *chi2_energyHE1D_noCut   = new TH1F("chi2_energyHE1D_noCut","chi2_energyHE1D_noCut",104,-1,3); 
   TH2F *TH2_chi2_energyHE       = new TH2F("TH2_chi2_energyHE","TH2_chi2_energyHE",100,0,500,100,-5,5);
   TH2F *M2vsM0_HE               = new TH2F("M2vsM0_HE","M2vsM0_HE",100,0,500,100,0,500);
@@ -129,6 +135,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 
   TProfile *chi2_energyHEQIE11       = new TProfile("chi2_energyHEQIE11","chi2_energyHEQIE11",100,0,500);
   TH1F *chi2_energyHEQIE111D         = new TH1F("chi2_energyHEQIE111D","chi2_energyHEQIE111D",104,-1,3); 
+  TH1F *chi2_energyHEQIE111D_10Cut   = new TH1F("chi2_energyHEQIE111D_10Cut","chi2_energyHEQIE111D_10Cut",104,-1,3); 
+  TH1F *chi2_energyHEQIE111D_15Cut   = new TH1F("chi2_energyHEQIE111D_15Cut","chi2_energyHEQIE111D_15Cut",104,-1,3); 
   TH1F *chi2_energyHEQIE111D_noCut   = new TH1F("chi2_energyHEQIE111D_noCut","chi2_energyHEQIE111D_noCut",104,-1,3); 
   TH2F *TH2_chi2_energyHEQIE11       = new TH2F("TH2_chi2_energyHEQIE11","TH2_chi2_energyHEQIE11",100,0,500,100,-5,5);
   TH2F *M2vsM0_HEQIE11               = new TH2F("M2vsM0_HEQIE11","M2vsM0_HEQIE11",100,0,500,100,0,500);
@@ -161,6 +169,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	TH2_time_energyHB->Fill(energyM2,time);
 	chi2_energyHB1D_noCut->Fill(log10(chi2));
 	if(energyM2 > 5) chi2_energyHB1D->Fill(log10(chi2));
+	if(energyM2 > 10) chi2_energyHB1D_10Cut->Fill(log10(chi2));
+	if(energyM2 > 15) chi2_energyHB1D_15Cut->Fill(log10(chi2));
       }
 
     }//HB RecHit Loop
@@ -184,6 +194,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	TH2_time_energyHE_All->Fill(energyM2,time);
 	chi2_energyHE_All1D_noCut->Fill(log10(chi2));
 	if(energyM2 > 5) chi2_energyHE_All1D->Fill(log10(chi2));
+	if(energyM2 > 10) chi2_energyHE_All1D_10Cut->Fill(log10(chi2));
+	if(energyM2 > 15) chi2_energyHE_All1D_15Cut->Fill(log10(chi2));
       }
       
       if(chi2 > 0 && ieta > 0 && iphi >= 63 && iphi <= 66){
@@ -195,6 +207,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	TH2_time_energyHEQIE11->Fill(energyM2,time);
 	chi2_energyHEQIE111D_noCut->Fill(log10(chi2));
 	if(energyM2 > 5) chi2_energyHEQIE111D->Fill(log10(chi2));
+	if(energyM2 > 10) chi2_energyHEQIE111D_10Cut->Fill(log10(chi2));
+	if(energyM2 > 15) chi2_energyHEQIE111D_15Cut->Fill(log10(chi2));
       }//In HEP17
       else{
 	if(chi2 > 0){
@@ -206,6 +220,8 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	  TH2_time_energyHE->Fill(energyM2,time);
 	  chi2_energyHE1D_noCut->Fill(log10(chi2));
 	  if(energyM2 > 5) chi2_energyHE1D->Fill(log10(chi2));
+	  if(energyM2 > 10) chi2_energyHE1D_10Cut->Fill(log10(chi2));
+	  if(energyM2 > 15) chi2_energyHE1D_15Cut->Fill(log10(chi2));
 	}
 	
       }//Cut on HEP17

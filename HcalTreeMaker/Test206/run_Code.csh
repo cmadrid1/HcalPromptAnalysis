@@ -27,6 +27,9 @@ cmsRun SinglePiE50HCAL_pythia8_cfi_GEN_SIM_seed.py
 
 #cmsRun testSiPMs.py GT=True PS=True PW=True TS=True DC=True CT=True NL=True
 #mv step2_GT_PS_PW_TS_DC_CT_NL.root step2.root
+
+#cmsRun testSiPMs.py          PS=True PW=True         DC=True CT=True NL=True
+#mv step2_noGT_PS_PW_noTS_DC_CT_NL.root step2.root
 cmsRun step2_DIGI_L1_DIGI2RAW_HLT.py
 cmsRun step3_RAW2DIGI_L1Reco_RECO_EI_PAT_VALIDATION_DQM.py
 
