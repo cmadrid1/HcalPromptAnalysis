@@ -83,24 +83,66 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 
   TTreeReaderValue<std::vector<float>> recHitHB_En(*tReader, "recHitHB_En");
   TTreeReaderValue<std::vector<float>> recHitHB_EnRAW(*tReader, "recHitHB_EnRAW");
+  TTreeReaderValue<std::vector<float>> recHitHB_EnM3(*tReader, "recHitHB_EnM3");
   TTreeReaderValue<std::vector<float>> recHitHB_time(*tReader, "recHitHB_time");
   TTreeReaderValue<std::vector<float>> chi2HB(*tReader, "chi2HB");
 
   TTreeReaderValue<std::vector<float>> recHitHE_En(*tReader, "recHitHE_En");
   TTreeReaderValue<std::vector<float>> recHitHE_EnRAW(*tReader, "recHitHE_EnRAW");
+  TTreeReaderValue<std::vector<float>> recHitHE_EnM3(*tReader, "recHitHE_EnM3");
   TTreeReaderValue<std::vector<float>> recHitHE_time(*tReader, "recHitHE_time");
   TTreeReaderValue<std::vector<float>> chi2HE(*tReader, "chi2HE");
 
-  //Define the Histograms to be filled
-  TProfile *chi2_energyHB = new TProfile("chi2_energyHB","chi2_energyHB",100,0,500);
-  TH2F *TH2_chi2_energyHB = new TH2F("TH2_chi2_energyHB","TH2_chi2_energyHB",100,0,500,100,-5,5);
-  TH2F *M2vsM0_HB         = new TH2F("M2vsM0_HB","M2vsM0_HB",100,0,500,100,0,500);
-  TH2F *TH2_time_energyHB = new TH2F("TH2_time_energyHB","TH2_time_energyHB",100,0,500,400,-20,20);
+  TTreeReaderValue<std::vector<float>> recHitHEQIE11_En(*tReader, "recHitHE_En");
+  TTreeReaderValue<std::vector<float>> recHitHEQIE11_EnRAW(*tReader, "recHitHE_EnRAW");
+  TTreeReaderValue<std::vector<float>> recHitHEQIE11_EnM3(*tReader, "recHitHE_EnM3");
+  TTreeReaderValue<std::vector<float>> recHitHEQIE11_time(*tReader, "recHitHE_time");
+  TTreeReaderValue<std::vector<float>> chi2HEQIE11(*tReader, "chi2HE");
 
-  TProfile *chi2_energyHE = new TProfile("chi2_energyHE","chi2_energyHE",100,0,500);
-  TH2F *TH2_chi2_energyHE = new TH2F("TH2_chi2_energyHE","TH2_chi2_energyHE",100,0,500,100,-5,5);
-  TH2F *M2vsM0_HE         = new TH2F("M2vsM0_HE","M2vsM0_HE",100,0,500,100,0,500);
-  TH2F *TH2_time_energyHE = new TH2F("TH2_time_energyHE","TH2_time_energyHE",100,0,500,400,-20,20);
+  //Define the Histograms to be filled
+  TProfile *chi2_energyHB     = new TProfile("chi2_energyHB","chi2_energyHB",100,0,500);
+  TH1F *chi2_energyHB1D       = new TH1F("chi2_energyHB1D","chi2_energyHB1D",104,-1,3); 
+  TH1F *chi2_energyHB1D_10Cut = new TH1F("chi2_energyHB1D_10Cut","chi2_energyHB1D_10Cut",104,-1,3); 
+  TH1F *chi2_energyHB1D_15Cut = new TH1F("chi2_energyHB1D_15Cut","chi2_energyHB1D_15Cut",104,-1,3); 
+  TH1F *chi2_energyHB1D_noCut = new TH1F("chi2_energyHB1D_noCut","chi2_energyHB1D_noCut",104,-1,3); 
+  TH2F *TH2_chi2_energyHB     = new TH2F("TH2_chi2_energyHB","TH2_chi2_energyHB",100,0,500,100,-5,5);
+  TH2F *M2vsM0_HB             = new TH2F("M2vsM0_HB","M2vsM0_HB",100,0,500,100,0,500);
+  TH2F *M3vsM0_HB             = new TH2F("M3vsM0_HB","M3vsM0_HB",100,0,500,100,0,500);
+  TH2F *M3vsM2_HB             = new TH2F("M3vsM2_HB","M3vsM2_HB",100,0,500,100,0,500);
+  TH2F *TH2_time_energyHB     = new TH2F("TH2_time_energyHB","TH2_time_energyHB",100,0,500,400,-20,20);
+
+  TProfile *chi2_energyHE_All     = new TProfile("chi2_energyHE_All","chi2_energyHE_All",100,0,500);
+  TH1F *chi2_energyHE_All1D       = new TH1F("chi2_energyHE_All1D","chi2_energyHE_All1D",104,-1,3); 
+  TH1F *chi2_energyHE_All1D_10Cut = new TH1F("chi2_energyHE_All1D_10Cut","chi2_energyHE_All1D_10Cut",104,-1,3); 
+  TH1F *chi2_energyHE_All1D_15Cut = new TH1F("chi2_energyHE_All1D_15Cut","chi2_energyHE_All1D_15Cut",104,-1,3); 
+  TH1F *chi2_energyHE_All1D_noCut = new TH1F("chi2_energyHE_All1D_noCut","chi2_energyHE_All1D_noCut",104,-1,3); 
+  TH2F *TH2_chi2_energyHE_All     = new TH2F("TH2_chi2_energyHE_All","TH2_chi2_energyHE_All",100,0,500,100,-5,5);
+  TH2F *M2vsM0_HE_All             = new TH2F("M2vsM0_HE_All","M2vsM0_HE_All",100,0,500,100,0,500);
+  TH2F *M3vsM0_HE_All             = new TH2F("M3vsM0_HE_All","M3vsM0_HE_All",100,0,500,100,0,500);
+  TH2F *M3vsM2_HE_All             = new TH2F("M3vsM2_HE_All","M3vsM2_HE_All",100,0,500,100,0,500);
+  TH2F *TH2_time_energyHE_All     = new TH2F("TH2_time_energyHE_All","TH2_time_energyHE_All",100,0,500,400,-20,20);
+
+  TProfile *chi2_energyHE       = new TProfile("chi2_energyHE","chi2_energyHE",100,0,500);
+  TH1F *chi2_energyHE1D         = new TH1F("chi2_energyHE1D","chi2_energyHE1D",104,-1,3); 
+  TH1F *chi2_energyHE1D_10Cut   = new TH1F("chi2_energyHE1D_10Cut","chi2_energyHE1D_10Cut",104,-1,3); 
+  TH1F *chi2_energyHE1D_15Cut   = new TH1F("chi2_energyHE1D_15Cut","chi2_energyHE1D_15Cut",104,-1,3); 
+  TH1F *chi2_energyHE1D_noCut   = new TH1F("chi2_energyHE1D_noCut","chi2_energyHE1D_noCut",104,-1,3); 
+  TH2F *TH2_chi2_energyHE       = new TH2F("TH2_chi2_energyHE","TH2_chi2_energyHE",100,0,500,100,-5,5);
+  TH2F *M2vsM0_HE               = new TH2F("M2vsM0_HE","M2vsM0_HE",100,0,500,100,0,500);
+  TH2F *M3vsM0_HE               = new TH2F("M3vsM0_HE","M3vsM0_HE",100,0,500,100,0,500);
+  TH2F *M3vsM2_HE               = new TH2F("M3vsM2_HE","M3vsM2_HE",100,0,500,100,0,500);
+  TH2F *TH2_time_energyHE       = new TH2F("TH2_time_energyHE","TH2_time_energyHE",100,0,500,400,-20,20);
+
+  TProfile *chi2_energyHEQIE11       = new TProfile("chi2_energyHEQIE11","chi2_energyHEQIE11",100,0,500);
+  TH1F *chi2_energyHEQIE111D         = new TH1F("chi2_energyHEQIE111D","chi2_energyHEQIE111D",104,-1,3); 
+  TH1F *chi2_energyHEQIE111D_10Cut   = new TH1F("chi2_energyHEQIE111D_10Cut","chi2_energyHEQIE111D_10Cut",104,-1,3); 
+  TH1F *chi2_energyHEQIE111D_15Cut   = new TH1F("chi2_energyHEQIE111D_15Cut","chi2_energyHEQIE111D_15Cut",104,-1,3); 
+  TH1F *chi2_energyHEQIE111D_noCut   = new TH1F("chi2_energyHEQIE111D_noCut","chi2_energyHEQIE111D_noCut",104,-1,3); 
+  TH2F *TH2_chi2_energyHEQIE11       = new TH2F("TH2_chi2_energyHEQIE11","TH2_chi2_energyHEQIE11",100,0,500,100,-5,5);
+  TH2F *M2vsM0_HEQIE11               = new TH2F("M2vsM0_HEQIE11","M2vsM0_HEQIE11",100,0,500,100,0,500);
+  TH2F *M3vsM0_HEQIE11               = new TH2F("M3vsM0_HEQIE11","M3vsM0_HEQIE11",100,0,500,100,0,500);
+  TH2F *M3vsM2_HEQIE11               = new TH2F("M3vsM2_HEQIE11","M3vsM2_HEQIE11",100,0,500,100,0,500);
+  TH2F *TH2_time_energyHEQIE11       = new TH2F("TH2_time_energyHEQIE11","TH2_time_energyHEQIE11",100,0,500,400,-20,20);
  
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                           While loop over all of the events and fills the histograms                                         //
@@ -112,6 +154,7 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
       double chi2     = (*chi2HB).at(rechit);
       double energyM2 = (*recHitHB_En).at(rechit);
       double energyM0 = (*recHitHB_EnRAW).at(rechit);
+      double energyM3 = (*recHitHB_EnM3).at(rechit);
       double time     = (*recHitHB_time).at(rechit);
       int ieta        = (*recHitHB_ieta).at(rechit);
       int iphi        = (*recHitHB_iphi).at(rechit);
@@ -121,7 +164,13 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
 	chi2_energyHB->Fill(energyM2,log10(chi2));
 	TH2_chi2_energyHB->Fill(energyM2,log10(chi2));
 	M2vsM0_HB->Fill(energyM0,energyM2);
+	M3vsM0_HB->Fill(energyM3,energyM0);
+	M3vsM2_HB->Fill(energyM3,energyM2);
 	TH2_time_energyHB->Fill(energyM2,time);
+	chi2_energyHB1D_noCut->Fill(log10(chi2));
+	if(energyM2 > 5) chi2_energyHB1D->Fill(log10(chi2));
+	if(energyM2 > 10) chi2_energyHB1D_10Cut->Fill(log10(chi2));
+	if(energyM2 > 15) chi2_energyHB1D_15Cut->Fill(log10(chi2));
       }
 
     }//HB RecHit Loop
@@ -130,20 +179,49 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
       double chi2     = (*chi2HE).at(rechit);
       double energyM2 = (*recHitHE_En).at(rechit);
       double energyM0 = (*recHitHE_EnRAW).at(rechit);
+      double energyM3 = (*recHitHE_EnM3).at(rechit);
       double time     = (*recHitHE_time).at(rechit);	
       int ieta        = (*recHitHE_ieta).at(rechit);
       int iphi        = (*recHitHE_iphi).at(rechit);
       int depth       = (*recHitHE_depth).at(rechit);
+
+      if(chi2 > 0){
+	chi2_energyHE_All->Fill(energyM2,log10(chi2));
+	TH2_chi2_energyHE_All->Fill(energyM2,log10(chi2));
+	M2vsM0_HE_All->Fill(energyM0,energyM2);
+	M3vsM0_HE_All->Fill(energyM3,energyM0);
+	M3vsM2_HE_All->Fill(energyM3,energyM2);
+	TH2_time_energyHE_All->Fill(energyM2,time);
+	chi2_energyHE_All1D_noCut->Fill(log10(chi2));
+	if(energyM2 > 5) chi2_energyHE_All1D->Fill(log10(chi2));
+	if(energyM2 > 10) chi2_energyHE_All1D_10Cut->Fill(log10(chi2));
+	if(energyM2 > 15) chi2_energyHE_All1D_15Cut->Fill(log10(chi2));
+      }
       
-      if(ieta > 0 && iphi >= 63 && iphi <= 66){
-	//In HEP17
+      if(chi2 > 0 && ieta > 0 && iphi >= 63 && iphi <= 66){
+	chi2_energyHEQIE11->Fill(energyM2,log10(chi2));
+	TH2_chi2_energyHEQIE11->Fill(energyM2,log10(chi2));
+	M2vsM0_HEQIE11->Fill(energyM0,energyM2);
+	M3vsM0_HEQIE11->Fill(energyM3,energyM0);
+	M3vsM2_HEQIE11->Fill(energyM3,energyM2);
+	TH2_time_energyHEQIE11->Fill(energyM2,time);
+	chi2_energyHEQIE111D_noCut->Fill(log10(chi2));
+	if(energyM2 > 5) chi2_energyHEQIE111D->Fill(log10(chi2));
+	if(energyM2 > 10) chi2_energyHEQIE111D_10Cut->Fill(log10(chi2));
+	if(energyM2 > 15) chi2_energyHEQIE111D_15Cut->Fill(log10(chi2));
       }//In HEP17
       else{
 	if(chi2 > 0){
 	  chi2_energyHE->Fill(energyM2,log10(chi2));
 	  TH2_chi2_energyHE->Fill(energyM2,log10(chi2));
 	  M2vsM0_HE->Fill(energyM0,energyM2);
+	  M3vsM0_HE->Fill(energyM3,energyM0); 
+	  M3vsM2_HE->Fill(energyM3,energyM2);
 	  TH2_time_energyHE->Fill(energyM2,time);
+	  chi2_energyHE1D_noCut->Fill(log10(chi2));
+	  if(energyM2 > 5) chi2_energyHE1D->Fill(log10(chi2));
+	  if(energyM2 > 10) chi2_energyHE1D_10Cut->Fill(log10(chi2));
+	  if(energyM2 > 15) chi2_energyHE1D_15Cut->Fill(log10(chi2));
 	}
 	
       }//Cut on HEP17

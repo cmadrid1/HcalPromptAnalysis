@@ -11,5 +11,4 @@ Log = sleep_$(Cluster)_$(Process).log
 notify_user = cmadrid@FNAL.GOV
 x509userproxy = /tmp/x509up_u52081
 Arguments = OutputTree_standard_$(Process).root Output_Histo_standard_10_25_$(Process).root Output_Histo_standard_25_50_$(Process).root Output_Histo_standard_50_75_$(Process).root Output_Histo_standard_75_100_$(Process).root Output_Histo_standard_100_150_$(Process).root Output_Histo_standard_150_200_$(Process).root Output_Histo_standard_200_300_$(Process).root Output_Histo_standard_300_inf_$(Process).root Output_Histo_RecHit_$(Process).root $(Process)
-Queue 1000
-
+Queue 100
