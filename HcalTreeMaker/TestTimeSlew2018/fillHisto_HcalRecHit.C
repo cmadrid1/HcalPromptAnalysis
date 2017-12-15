@@ -100,6 +100,7 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
   TTreeReaderValue<std::vector<float>> chi2HEQIE11(*tReader, "chi2HE");
 
   //Define the Histograms to be filled
+  //HB
   TProfile *chi2_energyHB     = new TProfile("chi2_energyHB","chi2_energyHB",100,0,500);
   TH1F *chi2_energyHB1D       = new TH1F("chi2_energyHB1D","chi2_energyHB1D",104,-1,3); 
   TH1F *chi2_energyHB1D_10Cut = new TH1F("chi2_energyHB1D_10Cut","chi2_energyHB1D_10Cut",104,-1,3); 
@@ -111,6 +112,7 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
   TH2F *M3vsM2_HB             = new TH2F("M3vsM2_HB","M3vsM2_HB",100,0,500,100,0,500);
   TH2F *TH2_time_energyHB     = new TH2F("TH2_time_energyHB","TH2_time_energyHB",100,0,500,400,-20,20);
 
+  //HE
   TProfile *chi2_energyHE_All     = new TProfile("chi2_energyHE_All","chi2_energyHE_All",100,0,500);
   TH1F *chi2_energyHE_All1D       = new TH1F("chi2_energyHE_All1D","chi2_energyHE_All1D",104,-1,3); 
   TH1F *chi2_energyHE_All1D_10Cut = new TH1F("chi2_energyHE_All1D_10Cut","chi2_energyHE_All1D_10Cut",104,-1,3); 
@@ -122,6 +124,7 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
   TH2F *M3vsM2_HE_All             = new TH2F("M3vsM2_HE_All","M3vsM2_HE_All",100,0,500,100,0,500);
   TH2F *TH2_time_energyHE_All     = new TH2F("TH2_time_energyHE_All","TH2_time_energyHE_All",100,0,500,400,-20,20);
 
+  //HE No HEP17
   TProfile *chi2_energyHE       = new TProfile("chi2_energyHE","chi2_energyHE",100,0,500);
   TH1F *chi2_energyHE1D         = new TH1F("chi2_energyHE1D","chi2_energyHE1D",104,-1,3); 
   TH1F *chi2_energyHE1D_10Cut   = new TH1F("chi2_energyHE1D_10Cut","chi2_energyHE1D_10Cut",104,-1,3); 
@@ -133,6 +136,7 @@ void fillHisto_HcalRecHit(const char *infile, const char *outfile, const char *f
   TH2F *M3vsM2_HE               = new TH2F("M3vsM2_HE","M3vsM2_HE",100,0,500,100,0,500);
   TH2F *TH2_time_energyHE       = new TH2F("TH2_time_energyHE","TH2_time_energyHE",100,0,500,400,-20,20);
 
+  //HEP17
   TProfile *chi2_energyHEQIE11       = new TProfile("chi2_energyHEQIE11","chi2_energyHEQIE11",100,0,500);
   TH1F *chi2_energyHEQIE111D         = new TH1F("chi2_energyHEQIE111D","chi2_energyHEQIE111D",104,-1,3); 
   TH1F *chi2_energyHEQIE111D_10Cut   = new TH1F("chi2_energyHEQIE111D_10Cut","chi2_energyHEQIE111D_10Cut",104,-1,3); 

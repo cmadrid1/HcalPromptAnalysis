@@ -40,31 +40,40 @@ void plot_RecHit(const char *HB_Title = "HB_Title",const char *HE_Title = "HE_Ti
   double ytime_max =  25.0;
 
   //Define/Get the Histos to be plotted  
-  TH1F* h1  = NULL;
-  TH2F* h2  = NULL;
-  TH2F* h3  = NULL;
-  TH2F* h4  = NULL;
-  TH1F* h5  = NULL;
-  TH2F* h6  = NULL;
-  TH2F* h7  = NULL;
-  TH2F* h8  = NULL;
-  TH2F* h9  = NULL;
-  TH2F* h10 = NULL;
-  TH2F* h11 = NULL;
-  
-  h1 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHB");
-  h2 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHB");
-  h3 = defineTH2F("Output_Histo_RecHit.root","M2vsM0_HB");
-  h3 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HB");
-  h3 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HB");
-  h4 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHB");
-  h5 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHEQIE11");
-  h6 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHEQIE11");
-  h7 = defineTH2F("Output_Histo_RecHit.root","M2vsM0_HEQIE11");
-  h8 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHEQIE11");
-  h9 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HEQIE11");
-  h10 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HEQIE11");
-  h11 = defineTH2F("Output_Histo_RecHit.root","chi2_energyHEQIE111D");
+  //HB
+  TH1F* h1 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHB");
+  TH2F* h2 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHB");
+  TH2F* h3 = defineTH2F("Output_Histo_RecHit.root","M2vsM0_HB");
+  TH2F* h3v0 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HB");
+  TH2F* h3v2 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HB");
+  TH2F* h4 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHB");
+
+  //HE No HEP17
+  TH1F* h5 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHE");
+  TH2F* h6 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHE");
+  TH2F* h7 = defineTH2F("Output_Histo_RecHit.root","M2vsM0_HE");
+  TH2F* h8 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHE");
+  TH2F* h9 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HE");
+  TH2F* h10 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HE");
+  TH2F* h11 = defineTH2F("Output_Histo_RecHit.root","chi2_energyHE1D");
+
+  //HE
+  //TH1F* h5 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHE_All");
+  //TH2F* h6 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHE_All");
+  //TH2F* h7 = defineTH2F("Output_Histo_RecHit.root","M2vsM0_HE_All");
+  //TH2F* h8 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHE_All");
+  //TH2F* h9 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HE_All");
+  //TH2F* h10 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HE_All");
+  //TH2F* h11 = defineTH2F("Output_Histo_RecHit.root","chi2_energyHE_All1D");
+
+  //HEP17
+  //TH1F* h5 = defineTH1F("Output_Histo_RecHit.root","chi2_energyHEQIE11");
+  //TH2F* h6 = defineTH2F("Output_Histo_RecHit.root","TH2_chi2_energyHEQIE11");
+  //TH2F* h7 = defineTH2F("Output_Histo_RecHit.root","M2vsM0_HEQIE11");
+  //TH2F* h8 = defineTH2F("Output_Histo_RecHit.root","TH2_time_energyHEQIE11");
+  //TH2F* h9 = defineTH2F("Output_Histo_RecHit.root","M3vsM0_HEQIE11");
+  //TH2F* h10 = defineTH2F("Output_Histo_RecHit.root","M3vsM2_HEQIE11");
+  //TH2F* h11 = defineTH2F("Output_Histo_RecHit.root","chi2_energyHEQIE111D");
 
   ////////HB//////////
   TCanvas *c0 = new TCanvas("c0","c0",1200,800);

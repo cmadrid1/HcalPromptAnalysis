@@ -83,14 +83,14 @@ void residual(const char *c0_Save = "TS4_residual.pdf",const char *c1_Save = "TS
   TH1F* h7 = defineHist("Output_Histo_standard_200_300.root"          ,"pulseShape_DigiHB_HPD");
   TH1F* h8 = defineHist("Output_Histo_standard_300_inf.root"          ,"pulseShape_DigiHB_HPD");
 
-  TH1F* h9  = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_10_25.root"   ,"pulseShape_DigiHB_HPD");
-  TH1F* h10 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_25_50.root"   ,"pulseShape_DigiHB_HPD");
-  TH1F* h11 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_50_75.root"   ,"pulseShape_DigiHB_HPD");
-  TH1F* h12 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_75_100.root"  ,"pulseShape_DigiHB_HPD");
-  TH1F* h13 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_100_150.root" ,"pulseShape_DigiHB_HPD");
-  TH1F* h14 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_150_200.root" ,"pulseShape_DigiHB_HPD");
-  TH1F* h15 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_200_300.root" ,"pulseShape_DigiHB_HPD");
-  TH1F* h16 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_300_inf.root" ,"pulseShape_DigiHB_HPD");
+  TH1F* h9  = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_10_25.root"   ,"pulseShape_DigiHB_HPD");
+  TH1F* h10 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_25_50.root"   ,"pulseShape_DigiHB_HPD");
+  TH1F* h11 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_50_75.root"   ,"pulseShape_DigiHB_HPD");
+  TH1F* h12 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_75_100.root"  ,"pulseShape_DigiHB_HPD");
+  TH1F* h13 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_100_150.root" ,"pulseShape_DigiHB_HPD");
+  TH1F* h14 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_150_200.root" ,"pulseShape_DigiHB_HPD");
+  TH1F* h15 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_200_300.root" ,"pulseShape_DigiHB_HPD");
+  TH1F* h16 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_300_inf.root" ,"pulseShape_DigiHB_HPD");
 
   TH1F* h17 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_Data_TimeSlew_Fix/src/HcalPromptAnalysis/HcalTreeMaker/TimeSlew/Data/Histo_NewData_10_25.root"          ,"pulseShape_DigiHB_HPD");
   TH1F* h18 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_Data_TimeSlew_Fix/src/HcalPromptAnalysis/HcalTreeMaker/TimeSlew/Data/Histo_NewData_25_50.root"          ,"pulseShape_DigiHB_HPD");
@@ -111,14 +111,14 @@ void residual(const char *c0_Save = "TS4_residual.pdf",const char *c1_Save = "TS
   TH1F* h31 = defineHist("Output_Histo_standard_200_300.root"          ,"pulseShape_DigiHE_HPD");
   TH1F* h32 = defineHist("Output_Histo_standard_300_inf.root"          ,"pulseShape_DigiHE_HPD");
 
-  TH1F* h33 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_10_25.root"   ,"pulseShape_DigiHE_HPD");
-  TH1F* h34 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_25_50.root"   ,"pulseShape_DigiHE_HPD");
-  TH1F* h35 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_50_75.root"   ,"pulseShape_DigiHE_HPD");
-  TH1F* h36 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_75_100.root"  ,"pulseShape_DigiHE_HPD");
-  TH1F* h37 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_100_150.root" ,"pulseShape_DigiHE_HPD");
-  TH1F* h38 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_150_200.root" ,"pulseShape_DigiHE_HPD");
-  TH1F* h39 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_200_300.root" ,"pulseShape_DigiHE_HPD");
-  TH1F* h40 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/50GeV/Output_Histo_standard_300_inf.root" ,"pulseShape_DigiHE_HPD");
+  TH1F* h33 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_10_25.root"   ,"pulseShape_DigiHE_HPD");
+  TH1F* h34 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_25_50.root"   ,"pulseShape_DigiHE_HPD");
+  TH1F* h35 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_50_75.root"   ,"pulseShape_DigiHE_HPD");
+  TH1F* h36 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_75_100.root"  ,"pulseShape_DigiHE_HPD");
+  TH1F* h37 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_100_150.root" ,"pulseShape_DigiHE_HPD");
+  TH1F* h38 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_150_200.root" ,"pulseShape_DigiHE_HPD");
+  TH1F* h39 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_200_300.root" ,"pulseShape_DigiHE_HPD");
+  TH1F* h40 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_PulseShape_DatavsMC/src/HcalPromptAnalysis/HcalTreeMaker/chi2/500GeV/Output_Histo_standard_300_inf.root" ,"pulseShape_DigiHE_HPD");
 
   TH1F* h41 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_Data_TimeSlew_Fix/src/HcalPromptAnalysis/HcalTreeMaker/TimeSlew/Data/Histo_NewData_10_25.root"          ,"pulseShape_DigiHE_HPD");
   TH1F* h42 = defineHist("/uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_Data_TimeSlew_Fix/src/HcalPromptAnalysis/HcalTreeMaker/TimeSlew/Data/Histo_NewData_25_50.root"          ,"pulseShape_DigiHE_HPD");
