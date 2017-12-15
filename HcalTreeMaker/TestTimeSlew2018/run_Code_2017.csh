@@ -1,0 +1,6 @@
+cmsRun SinglePiE50HCAL_pythia8_cfi_GEN_SIM_seed_2017.py
+cmsRun step2_DIGI_L1_DIGI2RAW_HLT_2017.py
+cmsRun step3_RAW2DIGI_L1Reco_RECO_RECOSIM_EI_PAT_VALIDATION_DQM_2017.py
+cmsRun Conf_HcalDigiTreeMaker_2017.py
+source FillHisto_HcalRecHit.csh
+source FillHisto_HcalDigis.csh
