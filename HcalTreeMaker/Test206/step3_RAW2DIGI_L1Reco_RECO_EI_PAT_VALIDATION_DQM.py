@@ -7,8 +7,8 @@ import FWCore.ParameterSet.Config as cms
 
 from Configuration.StandardSequences.Eras import eras
 
-process = cms.Process('RECO',eras.Run2_2017)
-#process = cms.Process('RECO',eras.Run2_2017,eras.hcalHardcodeConditions)
+#process = cms.Process('RECO',eras.Run2_2017)
+process = cms.Process('RECO',eras.Run2_2017,eras.hcalHardcodeConditions)
 
 # import of standard configurations
 process.load('Configuration.StandardSequences.Services_cff')
@@ -30,11 +30,12 @@ process.load('DQMOffline.Configuration.DQMOfflineMC_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 ####
-#process.load('RecoLocalCalo.HcalRecProducers.HBHEPhase1Reconstructor_cfi')
+process.hbheprereco.algorithm.useMahi = cms.bool(False)
+process.hbheprereco.algorithm.useM2 = cms.bool(True)
 
-#process.es_hardcode.toGet = cms.untracked.vstring('GainWidths','MCParams','RecoParams')
-#process.hbheprereco.useMahi = cms.bool(False)
-#process.hbheprereco.useM2 = cms.bool(True)
+process.es_hardcode.toGet = cms.untracked.vstring('GainWidths','MCParams','RecoParams')
+process.es_hardcode.heUpgrade.mcShape = 206
+process.es_hardcode.heUpgrade.recoShape = 206
 ####
 
 process.maxEvents = cms.untracked.PSet(
