@@ -1,3 +1,5 @@
+#!/bin/tcsh
+
 #rm Output_Histo_DC.root
 #root -b -q 'fillHisto_HcalDigis.C ( "OutputTree_DC.root"," Output_Histo_DC.root","single",100,99999 )'
 

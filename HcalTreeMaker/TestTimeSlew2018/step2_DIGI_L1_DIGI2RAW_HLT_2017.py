@@ -20,9 +20,20 @@ process.load('Configuration.StandardSequences.MagneticField_cff')
 process.load('Configuration.StandardSequences.Digi_cff')
 process.load('Configuration.StandardSequences.SimL1Emulator_cff')
 process.load('Configuration.StandardSequences.DigiToRaw_cff')
-process.load('HLTrigger.Configuration.HLT_2e34v40_cff')
+process.load('HLTrigger.Configuration.HLT_Fake2_cff')
+#process.load('HLTrigger.Configuration.HLT_2e34v31_cff')
+#process.load('HLTrigger.Configuration.HLT_GRun_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+####
+from CalibCalorimetry.HcalPlugins.HcalTimeSlew_cff import *
+from Configuration.Eras.Modifier_run2_HE_2017_cff import run2_HE_2017
+#HBHE2017  -  Medium
+run2_HE_2017.toModify(
+    HcalTimeSlewEP, timeSlewParametersM2 = {
+        1: dict(tzero = cms.double(11.977461), slope = cms.double(-1.5610227),tmax = cms.double(10.00))})
+####
 
 process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(-1)
@@ -60,7 +71,7 @@ process.options = cms.untracked.PSet(
 
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('step2 nevts:10'),
+    annotation = cms.untracked.string('step2 nevts:-1'),
     name = cms.untracked.string('Applications'),
     version = cms.untracked.string('$Revision: 1.19 $')
 )
@@ -78,6 +89,10 @@ process.FEVTDEBUGHLToutput = cms.OutputModule("PoolOutputModule",
 )
 
 # Additional output definition
+
+#Chris' addition: No GT and No TS
+#process.mix.digitizers.hcal.ignoreGeantTime = cms.bool(True) 
+#process.mix.digitizers.hcal.doTimeSlew = cms.bool(False)
 
 # Other statements
 process.mix.digitizers = cms.PSet(process.theDigitizersValid)

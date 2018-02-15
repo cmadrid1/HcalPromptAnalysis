@@ -1,3 +1,5 @@
+#!/bin/tcsh
+
 #cd /uscms_data/d3/cmadrid/ana/HCAL/digi_pulseshape/CMSSW_9_2_3_203Fix/src/HcalPromptAnalysis/HcalTreeMaker/203Fix/50GeV
 #cmsenv
 cmsRun SinglePiE50HCAL_pythia8_cfi_GEN_SIM_seed.py
@@ -39,5 +41,5 @@ cmsRun Conf_HcalDigiTreeMaker.py
 #cmsRun Conf_PW.py
 #cmsRun Conf_PS.py
 #cmsRun Conf_GT.py
-source FillHisto_HcalRecHit.csh
-source FillHisto_HcalDigis.csh
+./FillHisto_HcalRecHit.csh
+./FillHisto_HcalDigis.csh

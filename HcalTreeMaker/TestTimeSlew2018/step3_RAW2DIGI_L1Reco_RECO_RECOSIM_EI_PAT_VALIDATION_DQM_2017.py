@@ -28,6 +28,18 @@ process.load('Configuration.StandardSequences.Validation_cff')
 process.load('DQMOffline.Configuration.DQMOfflineMC_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
+####
+from CalibCalorimetry.HcalPlugins.HcalTimeSlew_cff import *
+from Configuration.Eras.Modifier_run2_HE_2017_cff import run2_HE_2017
+#HBHE2017  -  Medium
+run2_HE_2017.toModify(
+    HcalTimeSlewEP, timeSlewParametersM2 = {
+        1: dict(tzero = cms.double(11.977461), slope = cms.double(-1.5610227),tmax = cms.double(10.00))})
+
+process.hbheprereco.algorithm.useMahi = cms.bool(False)
+process.hbheprereco.algorithm.useM2 = cms.bool(True)
+####
+
 process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(-1)
 )
